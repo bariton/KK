@@ -9,25 +9,60 @@ namespace ConsoleApplication4
 {
     class Square : Poin
     {
-        double a, b, c, d;
-        public Square (Point P1, Point P2, Point P3, Point P4)
+        int A, B;
+        double a, b, c, d, x, y, z;
+        public Square(Point P1, Point P2, Point P3, Point P4)
         {
-                P3.X = P2.X;
-                P3.Y = P2.X;
-                P4.X = P1.X;
-                P4.Y = P3.Y;
-                a = P2.X - P1.X;
-                b = P3.Y - P2.Y;
-                c = P3.X - P4.X;
-                d = P4.Y - P1.Y;
+            A = P2.X - P1.X;
+            B = P2.Y - P1.Y;
+            P3.X = P2.X + B;
+            P3.Y = P2.Y - A;
+            P4.X = P1.X + B;
+            P4.Y = P1.Y - A;
+
+            a = P2.X;
+            b = P1.X;
+            c = P2.Y;
+            d = P1.Y;
         }
 
-        double x;
         public override double GetPerimetr()
         {
-            x = a+b+c+d;
-            Console.WriteLine("Периметр квадрата: " + x);
+            if (a > 0 & b < 0 || a < 0 & b > 0)
+            {
+                x = b - a;
+            }
+            else
+            {
+                if (a > b)
+                {
+                    x = a - b;
+                }
+                else
+                {
+                    x = b - a;
+                }
+            }
+            if (c > 0 & d < 0 || c < 0 & d > 0)
+            {
+                y = d - c;
+            }
+            else
+            {
+                if (c > d)
+                {
+                    y = c - d;
+                }
+                else
+                {
+                    y = d - c;
+                }
+            }
+            z = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+            z *= 4;
+            Console.WriteLine("Периметр квадрата " + z);
             return x;
         }
+
     }
 }
