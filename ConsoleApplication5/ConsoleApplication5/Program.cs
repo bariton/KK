@@ -19,13 +19,16 @@ namespace ConsoleApplication4
             P3 = new Point(0, 0);
             P4 = new Point(0, 0);
 
-            Poin[] poins = new Poin[4];    
+            Poin[] poins = new Poin[5];    
             poins[0] = new Segment(P1,P2);
             poins[1] = new Square (P1, P2, P3, P4);
             poins[2] = new Rectangle(P1, P2, P3, P4);
+            poins[3] = new Parallelogram(P1, P2, P3, P4);
+            poins[4] = new Circle(P1, P2);
+
             
                                         
-            for (int i = 0; i < 3; i++) 
+            for (int i = 0; i < 5; i++) 
             {                           
                 poins[i].GetPerimetr();
             }
